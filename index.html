@@ -27,6 +27,8 @@ Email: <input name=“email” required=“” size=“60” type=“email”/>
  </select>
 <br> <br>
  <input name=“submit” type=“submit” value=“submit”/> </form>
+
+  <button onclick="order_btn_click()">Click me to trigger "Order Completed"</button>
 <br>
 <script type=“text/javascript”>
  function identify(e){
@@ -131,6 +133,17 @@ Email: <input name=“email” required=“” size=“60” type=“email”/>
    //   ]
    // });
  }
+
+  function order_btn_click(){
+            analytics.track('Order Completed', {
+                custom_prop: "testing",
+                custom_obj_prop: {
+                    name: "Testing Obj 1",
+                    item: { id: "item_1" }
+                },
+                custom_arr_prop: ["item_1", { name: "item_2" }]
+            });
+        }
 </script>
 </body>
 </html>
